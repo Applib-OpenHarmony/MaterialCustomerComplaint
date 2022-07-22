@@ -19,8 +19,8 @@ import router from '@system.router';
 @Entry
 @Component
 struct Screen3 {
-  private PlaceHolder_Text: string = "Enter Full Description"
-  @State Input_Text: string = ''
+  private PlaceHolderText: string = "Enter Full Description"
+  @State InputText: string = ''
 
   build() {
     Column() {
@@ -30,18 +30,20 @@ struct Screen3 {
         Button('⋮').fontColor(Color.Black).backgroundColor(0XE0E1E4).fontWeight(FontWeight.Bolder)
       }
       .width('100%')
+
       Column() {
         Text('Enter Feedback').fontSize('15fp').margin({ top: '40vp', bottom: '10vp' }).fontWeight(FontWeight.Bold)
-        TextInput({ placeholder: this.PlaceHolder_Text, text: this.Input_Text })
+        TextInput({ placeholder: this.PlaceHolderText, text: this.InputText })
           .width('100%')
           .height('200vp')
           .fontFamily('cursive')
           .onChange((value: string) => {
-            this.Input_Text = value
+            this.InputText = value
           })
       }
       .width('100%')
       .alignItems(HorizontalAlign.Start)
+
       Row() {
         Button('Submit')
           .width('70%')

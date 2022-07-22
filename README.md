@@ -1,13 +1,18 @@
 # MaterialUICustomerComplaint
-Allow user to create Complaints in OpenHarmony
+Allow user to create Complaints in OpenHarmony.
 
-![MaterialUICustomerComplaint](screenshots/Screen1.png)
+
 
  **-->  Screen1**
+ 
+![MaterialUICustomerComplaint](screenshots/Screen1.png)
 
-![MaterialUICustomerComplaint](screenshots/Screen3.png)
 
  **-->  Screen3**
+ 
+![MaterialUICustomerComplaint](screenshots/Screen3.png)
+
+
 
 ## Usage Instructions
 
@@ -95,7 +100,7 @@ private SubHead(model: CardModel) {
 
 
 ## Compatibility
-Supports OpenHarmony API version 8 or above
+Supports OpenHarmony API version 8 or above.
 
 
 ## Code Contribution

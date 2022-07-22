@@ -26,7 +26,7 @@ MaterialSelect({
     new MenuOption('Others', 4)
  ],          
  onSelect: (it: MenuOption) => {
-  this.Complaint_type = it.getValue()
+  this.ComplaintType = it.getValue()
   },
     model: this.selectModel,
     menuModel: this.selectMenuModel,

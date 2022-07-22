@@ -36,12 +36,12 @@ MaterialSelect({
 2. Code for taking input as **Description of Complaint** with the help of Placeholder:
 
 ```
-TextInput({ placeholder: this.PlaceHolder_Text, text: this.Input_Text })
+TextInput({ placeholder: this.PlaceHolderText, text: this.InputText })
   .width('100%')
   .height('200vp')
   .fontFamily('cursive')
   .onChange((value: string) => {
-      this.Input_Text = value
+      this.InputText = value
  })
  ```
  
@@ -49,7 +49,7 @@ TextInput({ placeholder: this.PlaceHolder_Text, text: this.Input_Text })
 
 ```
 private current = new Date();
-private subHead: CardModel = new CardModel(this.Complaint_type, 'Created on ' + this.current.toString())
+private subHead: CardModel = new CardModel(this.ComplaintType, 'Created on ' + this.current.toString())
 
 private onButtonClick(button: button.Model) {
     router.push({ uri: "pages/Screen3"
@@ -61,7 +61,7 @@ private SubHead(model: CardModel) {
     model.setCardType(CardType.Outlined)
     model.setCardBorderWidth("3vp")
     model.setLeadingIcon($r('app.media.icon'))
-    model.setSupportingText("Description\n" + this.Input_Text)
+    model.setSupportingText("Description\n" + this.InputText)
     model.setCardHeight("250vp")
     model.setCardWidth("320vp")
     model.setCardBackGroundColor('#ffece5e5')

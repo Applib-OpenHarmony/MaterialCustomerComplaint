@@ -10,7 +10,6 @@
   "repository": {},
   "license": "ISC",
   "dependencies": {
-    "@ohos/materialtextfield": "file:../materialtextfield",
     "@ohos/material-select": "file:../materialselect",
     "@ohos/material-card": "file:../materialcard"
   }

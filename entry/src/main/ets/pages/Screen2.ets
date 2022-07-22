@@ -14,28 +14,29 @@
  * limitations under the License.
  */
 
-import {MaterialCard } from '@ohos/material-card'
+import { MaterialCard } from '@ohos/material-card'
 import router from '@system.router';
 
 @Entry
 @Component
 struct Screen2 {
-  @State Card_Array: any = router.getParams().text
+  @State CardArray: any = router.getParams().text
 
-  build(){
-    Column({space:30}) {
+  build() {
+    Column({ space: 30 }) {
       Row({ space: '25vp' }) {
         Button('<').fontColor(Color.Black).backgroundColor(0XE0E1E4).fontWeight(FontWeight.Bolder)
         Text("Customer Support").fontSize('20fp').fontWeight(FontWeight.Bolder)
         Button('⋮').fontColor(Color.Black).backgroundColor(0XE0E1E4).fontWeight(FontWeight.Bolder)
       }
       .width('100%')
-      Row(){
+
+      Row() {
         Button('Create Complaint')
           .width('70%')
           .backgroundColor(0x00B5E2)
-          .onClick(()=>{
-            router.push({uri:"pages/Screen1"})
+          .onClick(() => {
+            router.push({ uri: "pages/Screen1" })
           })
       }
     }

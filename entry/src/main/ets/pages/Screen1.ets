@@ -15,21 +15,21 @@
  */
 
 import { MaterialSelect, MenuOption } from '@ohos/material-select'
-import { button, CardModel, CardType} from '@ohos/material-card'
+import { button, CardModel, CardType } from '@ohos/material-card'
 import router from '@system.router';
 
 @Entry
 @Component
 struct Screen1 {
-  @State Complaint_type: string= ''
-  @State Input_Text: string= ''
-  @State Card_Array: CardModel [] = []
-  @State Card_Array_Transfer: object= { name: this.Card_Array }
-  private PlaceHolder_Text: string = "Enter Full Description"
+  @State ComplaintType: string= ''
+  @State InputText: string= ''
+  @State CardArray: CardModel [] = []
+  @State CardArrayTransfer: object= { name: this.CardArray }
+  private PlaceHolderText: string = "Enter Full Description"
   selectModel: MaterialSelect.Model = new MaterialSelect.Model('Industry', 'Select')
   selectMenuModel: MaterialSelect.MenuModel = new MaterialSelect.MenuModel()
   private current = new Date();
-  private subHead: CardModel = new CardModel(this.Complaint_type, 'Created on ' + this.current.toString())
+  private subHead: CardModel = new CardModel(this.ComplaintType, 'Created on ' + this.current.toString())
 
   private onButtonClick(button: button.Model) {
     router.push({ uri: "pages/Screen3"
@@ -41,7 +41,7 @@ struct Screen1 {
     model.setCardType(CardType.Outlined)
     model.setCardBorderWidth("3vp")
     model.setLeadingIcon($r('app.media.icon'))
-    model.setSupportingText("Description\n" + this.Input_Text)
+    model.setSupportingText("Description\n" + this.InputText)
     model.setCardHeight("250vp")
     model.setCardWidth("320vp")
     model.setCardBackGroundColor('#ffece5e5')
@@ -88,6 +88,7 @@ struct Screen1 {
         Button('⋮').fontColor(Color.Black).backgroundColor(0XE0E1E4).fontWeight(FontWeight.Bolder)
       }
       .width('100%')
+
       Column() {
         Text('Complaint Type').fontSize('15fp').margin({ top: '40vp' }).fontWeight(FontWeight.Bold)
         MaterialSelect({
@@ -98,7 +99,7 @@ struct Screen1 {
             new MenuOption('Others', 4)
           ],
           onSelect: (it: MenuOption) => {
-            this.Complaint_type = it.getValue()
+            this.ComplaintType = it.getValue()
           },
           model: this.selectModel,
           menuModel: this.selectMenuModel,
@@ -106,30 +107,32 @@ struct Screen1 {
       }
       .width('100%')
       .alignItems(HorizontalAlign.Start)
+
       Column() {
         Text('Description').fontSize('15fp').margin({ top: '40vp', bottom: '10vp' }).fontWeight(FontWeight.Bold)
-        TextInput({ placeholder: this.PlaceHolder_Text, text: this.Input_Text })
+        TextInput({ placeholder: this.PlaceHolderText, text: this.InputText })
           .width('100%')
           .height('200vp')
           .fontFamily('cursive')
           .onChange((value: string) => {
-            this.Input_Text = value
+            this.InputText = value
           })
       }
       .width('100%')
       .alignItems(HorizontalAlign.Start)
+
       Column()
-      .height('30%')
+        .height('30%')
       Column() {
         Button('Submit')
           .width('70%')
           .backgroundColor(0x00B5E2)
           .onClick(() => {
-            this.subHead.setSupportingText("Description :\n" + this.Input_Text + "\n " + "\n " + "\n " + "\n " + "\n ")
-            this.Card_Array.push(this.subHead)
-            this.Card_Array_Transfer = { name: this.Card_Array }
+            this.subHead.setSupportingText("Description :\n" + this.InputText + "\n " + "\n " + "\n " + "\n " + "\n ")
+            this.CardArray.push(this.subHead)
+            this.CardArrayTransfer = { name: this.CardArray }
             router.push({ uri: "pages/Screen2",
-              params: { text: this.Card_Array_Transfer }
+              params: { text: this.CardArrayTransfer }
             })
           })
       }
@@ -137,6 +140,3 @@ struct Screen1 {
     .margin('20vp')
   }
 }
-
-
-
